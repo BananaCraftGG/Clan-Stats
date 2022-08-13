@@ -1,0 +1,7 @@
+name: ClanStats
+version: ${project.version}
+author: brownie
+depends: [Clans]
+depend: [Clans]
+main: de.brownie.clanstats.Main
+description: Provides stats for clans for BananaCraft
