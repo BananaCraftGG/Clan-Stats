@@ -24,8 +24,9 @@ public class KBFFAConnection extends SQLCommunication {
 			if (rs.next()) {
 				int kills = rs.getInt("KILLS");
 				int deaths = rs.getInt("DEATHS");
-				String kd = String.format("%.2f", (double) (kills / deaths));
-				return new KBFFAPlayerData(deaths, kills, Double.parseDouble(kd));
+				String kd = String.format("%.2f", (double) kills / deaths);
+				System.out.println(kd);
+				return new KBFFAPlayerData(kills, deaths, Double.parseDouble(kd));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

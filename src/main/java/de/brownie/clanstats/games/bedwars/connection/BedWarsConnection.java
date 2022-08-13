@@ -2,6 +2,7 @@ package de.brownie.clanstats.games.bedwars.connection;
 
 import de.brownie.clanstats.games.bedwars.data.BedwarsPlayerData;
 import de.simonsator.partyandfriends.communication.sql.SQLCommunication;
+import de.simonsator.partyandfriendsgui.communication.BungeecordCommunication;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -24,7 +25,7 @@ public class BedWarsConnection extends SQLCommunication {
 			if (rs.next()) {
 				int kills = rs.getInt("KILLS");
 				int deaths = rs.getInt("DEATHS");
-				String kd = String.format("%.2f", (double) (kills / deaths));
+				String kd = String.format("%.2f", (double) kills / deaths);
 				return new BedwarsPlayerData(rs.getInt("WINS"), rs.getInt("LOSSES"), rs.getInt("PLAYED"), rs.getInt("BED"), Double.parseDouble(kd), deaths, kills);
 			}
 		} catch (SQLException e) {
