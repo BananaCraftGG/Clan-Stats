@@ -35,6 +35,7 @@ public class BedwarsStats implements ClanStat {
 		double kds = 0.00D;
 		for (BedwarsPlayerData data : bedwarsPlayerData) {
 			wins += data.wins;
+			losses += data.losses;
 			deaths += data.deaths;
 			destroyedBeds += data.destroyedBeds;
 			games += data.games;
@@ -44,13 +45,13 @@ public class BedwarsStats implements ClanStat {
 		kds /= bedwarsPlayerData.size();
 		if (kds != kds)
 			kds = 0.00D;
+		ChatUtils.sendMessagePAF(pSender, String.format("&7The clan has played &a%s &7games.", games));
 		ChatUtils.sendMessagePAF(pSender, String.format("&7The clan has won &a%s &7games.", wins));
 		ChatUtils.sendMessagePAF(pSender, String.format("&7The clan has lost &a%s &7games.", losses));
-		ChatUtils.sendMessagePAF(pSender, String.format("&7The clan has played &a%s &7games.", games));
 		ChatUtils.sendMessagePAF(pSender, String.format("&7The clan has destroyed &a%s &7beds.", destroyedBeds));
-		ChatUtils.sendMessagePAF(pSender, String.format("&7The average K/D of the clan is &a%s&7.", kds));
 		ChatUtils.sendMessagePAF(pSender, String.format("&7The members of the clan have killed &a%s &7people.", kills));
 		ChatUtils.sendMessagePAF(pSender, String.format("&7The members of the clan have died &a%s &7times.", deaths));
+		ChatUtils.sendMessagePAF(pSender, String.format("&7The average K/D of the clan is &a%s&7.", kds));
 	}
 
 	public String getName() {
